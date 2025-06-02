@@ -1,8 +1,11 @@
 body {
-    background: rgb(161, 28, 10);
+    background-image: url("red.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     color: rgb(45, 45, 45);
     padding: 10px;
-    font-family: Arial, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #all-contents {
@@ -65,7 +68,7 @@ nav {
    }
    
    #interests {
-       border: 4px silver ridge;
+       border: 4px silver outset;
        padding: 8px;
        margin-top: 20px;
    }
