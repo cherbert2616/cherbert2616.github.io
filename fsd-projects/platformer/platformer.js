@@ -31,21 +31,21 @@ $(function () {
 
 
     // TODO 2 - Create Platforms
-    createPlatform(700,0, 20, 400)
-    createPlatform(700, 500, 20, 290);
-    createPlatform(1350, 400, 50, 50, "green");
-    createPlatform(450, 630,100, 50);
-    createPlatform(950,550, 60, 50);
-    createPlatform(1160, 450, 60, 50);
-    createPlatform(230, 510, 60, 50);
+    createPlatform(700,0, 20, 400, "white");
+    createPlatform(700, 500, 20, 290, "white");
+    createPlatform(1350, 400, 50, 50, "lightgreen");
+    createPlatform(450, 630,100, 50, "white");
+    createPlatform(950,550, 60, 50, "white");
+    createPlatform(1160, 450, 60, 50, "white");
+    createPlatform(230, 510, 60, 50, "white");
 
 
 
     // TODO 3 - Create Collectables
-    createCollectable("database", 480, 500, 0.5, 0.7);
-    createCollectable("database", 250, 370, 0.5, 0.7);
-    createCollectable("database", 700, 430, 0.5, 0.7);
-    createCollectable("database", 1160, 300, 0.5, 0.7);
+    createCollectable("kitty", 480, 500, 0.5, 0.7);
+    createCollectable("kitty", 250, 370, 0.5, 0.7);
+    createCollectable("kitty", 700, 430, 0.5, 0.7);
+    createCollectable("kitty", 1160, 300, 0.5, 0.7);
   
 
 
