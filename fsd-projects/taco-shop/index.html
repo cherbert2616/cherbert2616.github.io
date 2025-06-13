@@ -14,7 +14,8 @@
             }
 
             .menu-item {
-                border: 3px solid gray;
+                border: 3px double rgb(0, 0, 0);
+                border-radius: 7px;
             }
 
             .menu-item > h4,
@@ -59,8 +60,41 @@
         </div>
         <script>
             $('button').on('click', takeOrder);
+            function takeOrder() {
             var total = (0);
             var orderNumber =prompt('What cake would you like to order?')
+            if (orderNumber === '1') {
+                 total += 30.00;
+                } else if (orderNumber === '2') {
+                    total += 20.00;
+                } else if (orderNumber === '3') {
+                    total += 25.00
+                }
+                else {
+                    alert('Sorry, you entered an incorrect cake number.');
+                }
+                var cakeFlavor = prompt('What flavor would you like? Vanilla (2.99), Chocolate (3.99), or Red Velvet (4.99)?');
+                if (cakeFlavor === 'Vanilla') {
+                     total += 3.00;
+                    } else if (cakeFlavor === 'Chocolate') {
+                        total += 4.00;
+                    } else if (cakeFlavor === 'Red Velvet') {
+                        total += 5.00;
+                    } else {
+                        alert('Sorry, this flavor is not available.');
+                    } 
+                    var cakeFrosting = prompt('What frosting would you like? Whipped-Cream (0.99), Buttercream (1.99), or Cream-Cheese (2.99)?');
+                    if (cakeFrosting === 'Whipped Cream') {
+                     total += 1.00;
+                    } else if (cakeFrosting === 'Buttercream') {
+                        total += 2.00;
+                    } else if (cakeFrosting === 'Cream Cheese') {
+                        total += 3.00;
+                    } else {
+                        alert('Sorry, this frosting is not available.');
+                    }
+                    alert('The total for your order is $' + total + '. We\'ll have it out shortly. Thanks for visiting the cake shop, and have a nice day!');
+            }
         </script>
     </body>
 </html>
