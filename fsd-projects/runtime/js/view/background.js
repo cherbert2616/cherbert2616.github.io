@@ -52,7 +52,7 @@ var background = function (window) {
             background.addChild(sun);
             // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
             for (var i = 0; i < 5; ++i) {
-                var buildingHeight = 300;
+                var buildingHeight = Math.random() * 300;
                 var building = draw.rect(75, buildingHeight, "lightgray", "black", 1);
                 building.x = 200 * i;
                 building.y = groundY - buildingHeight;
@@ -77,12 +77,15 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 3: Part 2 - Move the tree!
-            tree.x = tree.x + 1;
+            tree.x = tree.x - 2;
             if (tree.x < -200) {
                 tree.x = canvasWidth;
             }
             // TODO 4: Part 2 - Parallax
-            
+            for (var i = 0; i < buildings.length; i++) {
+                var building = buildings[i]
+                building.x = building.x - 1;
+            }
 
         } // end of update function - DO NOT DELETE
         
