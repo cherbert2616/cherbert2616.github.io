@@ -18,25 +18,72 @@ var runLevels = function (window) {
 
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE
-    function createSawBlade (x, y) {
+    function createSawBlade(x, y) {
       var hitZoneSize = 25;
-    var damageFromObstacle = 10;
-    var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
-    sawBladeHitZone.x = 400;
-    sawBladeHitZone.y = 400;
-    game.addGameItem(sawBladeHitZone);
-    var obstacleImage = draw.bitmap("img/sawblade.png");
-    sawBladeHitZone.addChild(obstacleImage);
-    obstacleImage.x = x
-    obstacleImage.y = y
+      var damageFromObstacle = 10;
+      var sawBladeHitZone = game.createObstacle(
+        hitZoneSize,
+        damageFromObstacle
+      );
+      sawBladeHitZone.x = 400;
+      sawBladeHitZone.y = 400;
+      game.addGameItem(sawBladeHitZone);
+      var obstacleImage = draw.bitmap("img/sawblade.png");
+      sawBladeHitZone.addChild(obstacleImage);
+      obstacleImage.x = x;
+      obstacleImage.y = y;
     }
+    
     createSawBlade(50, 50);
     createSawBlade(500, -50);
     createSawBlade(250, -5);
+
+    var enemy = game.createGameItem("enemy", 25);
+    var redSquare = draw.rect(50, 50, "red");
+    redSquare.x = -25;
+    redSquare.y = -25;
+    enemy.addChild(redSquare);
+    enemy.x = 400;
+    enemy.y = groundY - 50;
+    game.addGameItem(enemy);
+    enemy.velocityX = -5;
+    enemy.rotationalVelocity = 5;
+    enemy.onPlayerCollision = function () {
+      game.changeIntegrity(-10);
+    };
+    enemy.onProjectileCollision = function () {
+      game.increaseScore(100);
+      enemy.fadeOut();
+    };
+
+    function createEnemy(x, y) {
+      var enemy = game.createGameItem("enemy", 25);
+      var redSquare = draw.rect(50, 50, "red");
+      redSquare.x = -25;
+      redSquare.y = -25;
+      enemy.addChild(redSquare);
+      enemy.x = 400;
+      enemy.y = groundY - 50;
+      game.addGameItem(enemy);
+      enemy.velocityX = -5;
+      enemy.rotationalVelocity = 5;
+      enemy.onPlayerCollision = function () {
+        game.changeIntegrity(-10);
+      };
+      enemy.onProjectileCollision = function () {
+        game.increaseScore(100);
+        enemy.fadeOut();
+      };
+    }
+
+
+    createEnemy(400, groundY - 10);
+    createEnemy(800, groundY - 100);
+    createEnemy(1200, groundY - 50);
+
+
     function startLevel() {
       // TODO 13 goes below here
-
-
 
       //////////////////////////////////////////////
       // DO NOT EDIT CODE BELOW HERE
