@@ -38,32 +38,14 @@ var runLevels = function (window) {
     createSawBlade(500, -50);
     createSawBlade(250, -5);
 
-    var enemy = game.createGameItem("enemy", 25);
-    var redSquare = draw.rect(50, 50, "red");
-    redSquare.x = -25;
-    redSquare.y = -25;
-    enemy.addChild(redSquare);
-    enemy.x = 400;
-    enemy.y = groundY - 50;
-    game.addGameItem(enemy);
-    enemy.velocityX = -5;
-    enemy.rotationalVelocity = 5;
-    enemy.onPlayerCollision = function () {
-      game.changeIntegrity(-10);
-    };
-    enemy.onProjectileCollision = function () {
-      game.increaseScore(100);
-      enemy.fadeOut();
-    };
-
     function createEnemy(x, y) {
       var enemy = game.createGameItem("enemy", 25);
       var redSquare = draw.rect(50, 50, "red");
       redSquare.x = -25;
       redSquare.y = -25;
       enemy.addChild(redSquare);
-      enemy.x = 400;
-      enemy.y = groundY - 50;
+      enemy.x = x;
+      enemy.y = y;
       game.addGameItem(enemy);
       enemy.velocityX = -5;
       enemy.rotationalVelocity = 5;
@@ -77,8 +59,8 @@ var runLevels = function (window) {
     }
 
 
-    createEnemy(400, groundY - 10);
-    createEnemy(800, groundY - 100);
+    createEnemy(400, groundY - 50);
+    createEnemy(800, groundY - 40);
     createEnemy(1200, groundY - 50);
 
 
