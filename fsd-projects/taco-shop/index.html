@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cake Shop</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            #menu, #take-order {
+                display: flex;
+                flex-direction: row;
+            }
+
+            #take-order > p {
+                padding-right: 10px;
+            }
+
+            .menu-item {
+                border: 3px double rgb(0, 0, 0);
+                border-radius: 7px;
+            }
+
+            .menu-item > h4,
+            .menu-item > img {
+                padding: 10px;
+                padding-bottom: 5px;
+            }
+
+            img {
+                width: 250px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="all-contents">
+            <nav>
+                <h1>Cake Shop</h1>
+                <div id="take-order">
+                    <p>When you're ready to place your order, click here: </p>
+                    <button>Place Order</button>
+                </div>
+            </nav>
+            <main>
+                <h3>Menu</h3>
+                <div id="menu">
+                    <div id="betty-cake" class="menu-item">
+                        <h4> #1 - Betty Cake</h4>
+                        <img src="https://i.pinimg.com/736x/33/7a/ac/337aacf2f537dc77bccc88eaa1c92fde.jpg">
+                        <h4>6.99</h4>
+                    </div>
+                    <div id="flower-cake" class="menu-item">
+                        <h4>#2 - Flower Cake</h4>
+                        <img src="https://i.pinimg.com/736x/ba/ba/82/baba8259e3207a5f051b26f66bb1579f.jpg">
+                        <h4>9.99</h4>
+                    </div>
+                    <div id = "kitty-cake" class="menu-item">
+                        <h4> #3 - Kitty Cake</h4>
+                        <img src="https://i.pinimg.com/736x/74/a9/82/74a982064c5a874fbec835aafe7dc7fe.jpg">
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script>
+            $('button').on('click', takeOrder);
+            function takeOrder() {
+            var total = (0);
+            var orderNumber =prompt('What cake would you like to order?')
+            if (orderNumber === '1') {
+                 total += 30.00;
+                } else if (orderNumber === '2') {
+                    total += 20.00;
+                } else if (orderNumber === '3') {
+                    total += 25.00
+                }
+                else {
+                    alert('Sorry, you entered an incorrect cake number.');
+                }
+                var cakeFlavor = prompt('What flavor would you like? Vanilla (2.99), Chocolate (3.99), or Red Velvet (4.99)?');
+                if (cakeFlavor === 'Vanilla') {
+                     total += 3.00;
+                    } else if (cakeFlavor === 'Chocolate') {
+                        total += 4.00;
+                    } else if (cakeFlavor === 'Red Velvet') {
+                        total += 5.00;
+                    } else {
+                        alert('Sorry, this flavor is not available.');
+                    } 
+                    var cakeFrosting = prompt('What frosting would you like? Whipped-Cream (0.99), Buttercream (1.99), or Cream-Cheese (2.99)?');
+                    if (cakeFrosting === 'Whipped Cream') {
+                     total += 1.00;
+                    } else if (cakeFrosting === 'Buttercream') {
+                        total += 2.00;
+                    } else if (cakeFrosting === 'Cream Cheese') {
+                        total += 3.00;
+                    } else {
+                        alert('Sorry, this frosting is not available.');
+                    }
+                    alert('The total for your order is $' + total + '. We\'ll have it out shortly. Thanks for visiting the cake shop, and have a nice day!');
+            }
+        </script>
+    </body>
+</html>

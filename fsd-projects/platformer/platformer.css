@@ -1,0 +1,14 @@
+body {
+  margin: 0px;
+}
+
+canvas {
+  background-image: url("images/sanrio.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 20px;
+}
+
+img {
+  display: none;
+}
