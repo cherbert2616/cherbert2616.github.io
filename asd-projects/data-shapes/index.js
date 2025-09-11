@@ -43,8 +43,7 @@ $(document).ready(function () {
   dataShapes.push(shape);
 //TODO 0: Complete
   // TODO 2: add a new property to all data shapes
-  for (var currentShape in dataShapes) {
-    if
+  for (let i = 0; i <= 3; i++) {
   }
 
   // TODO 3-a: add a function that handles the static display type
