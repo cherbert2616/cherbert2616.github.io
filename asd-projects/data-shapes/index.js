@@ -43,9 +43,14 @@ $(document).ready(function () {
   dataShapes.push(shape);
 //TODO 0: Complete
   // TODO 2: add a new property to all data shapes
-  for (let i = 0; i <= 3; i++) {
+  for (let i = 0; i < dataShapes.length; i++) {
+    var currentShape = dataShapes[i]
+    // check to see if currentShape.color is === the colors in the instructions
+    // based on the color will be assigning currentShape.goodBehavior to certain strings
+    if (currentShape.color === "red"); {
+      currentShape.goodBehavior = "bounce"
+    }
   }
-
   // TODO 3-a: add a function that handles the static display type
   
 
