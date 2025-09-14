@@ -49,6 +49,8 @@ $(document).ready(function () {
     // based on the color will be assigning currentShape.goodBehavior to certain strings
     if (currentShape.color === "red"); {
       currentShape.goodBehavior = "bounce"
+    } if (currentShape.color === "blue"); {
+      currentShape.goodBehavior = "blink"
     }
   }
   // TODO 3-a: add a function that handles the static display type
