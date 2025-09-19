@@ -47,17 +47,22 @@ $(document).ready(function () {
     var currentShape = dataShapes[i]
     // check to see if currentShape.color is === the colors in the instructions
     // based on the color will be assigning currentShape.goodBehavior to certain strings
-    if (currentShape.color === "red"); {
+    if (currentShape.color === "red") {
       currentShape.goodBehavior = "bounce"
-    } if (currentShape.color === "blue"); {
+    } else if (currentShape.color === "blue") {
       currentShape.goodBehavior = "blink"
-    }
+    } else {currentShape.goodBehavior = "spin"}
   }
   // TODO 3-a: add a function that handles the static display type
-  
+  function handleStatic (data) {
+    setBackgroundWithObject(data);
+    animationDetails.displayType = 1; 
+  }
 
   // TODO 4-a: add a function that handles the good display type
-  
+  function handleGood(color, shape, repeat) {
+    setBackgroundWithSimple
+  }
 
   // TODO 5-a: add a function that handles the bad display type
   
@@ -68,7 +73,7 @@ $(document).ready(function () {
 
   function staticDisplay() {
     // TODO 3-b: call your handleStatic function
-    
+    handleStatic(dataShapes[currentIndex]); 
   }
 
   function goodDisplay() {
