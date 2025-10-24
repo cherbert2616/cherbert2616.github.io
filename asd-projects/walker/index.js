@@ -6,6 +6,13 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
   //////////////////////////// SETUP /////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
+var walker = {
+  x: 0,
+  y: 0,
+  speedX: 0,
+  speedY: 0
+
+}
 
   // Constant Variables
   var FRAME_RATE = 60;
@@ -14,10 +21,10 @@ function runProgram(){
   // Game Item Objects
 const KEY = {
   ENTER: 13,
-  LEFT: 0,
-  UP: 0,
-  RIGHT: 0,
-  DOWN: 0,
+  LEFT: 87,
+  UP: 65,
+  RIGHT: 83,
+  DOWN: 63,
 }
 
   // one-time setup
@@ -40,8 +47,8 @@ const KEY = {
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    
-
+    repositionGameItem();
+    redrawGameItem();
   }
   
   /* 
@@ -51,14 +58,34 @@ const KEY = {
   Note: You can have multiple event handlers for different types of events.
   */
   function handleKeyDown(event) {
-
+    console.log(event.which);
+    if (event.which === KEY.LEFT) {
+  console.log("left pressed");
+}
+else if (event.which === KEY.UP) {
+  console.log("up pressed");
+}
+else if (event.which === KEY.RIGHT) {
+  console.log("right pressed");
+}
+else if (event.which === KEY.DOWN) {
+  console.log("down pressed");
+}
   }
 
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-
+  function repositionGameItem() {
+    walker.speedX += walker.x 
+    walker.speedY += walker.y
+  }
   
+  function redrawGameItem() {
+    $("#walker").css("left", walker.x);
+    $("#walker").css("top", walker.y);
+  }
+ 
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
