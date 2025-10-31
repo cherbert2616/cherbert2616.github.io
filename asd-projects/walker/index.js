@@ -21,10 +21,10 @@ var walker = {
   // Game Item Objects
 const KEY = {
   ENTER: 13,
-  LEFT: 87,
-  UP: 65,
-  RIGHT: 83,
-  DOWN: 63,
+  LEFT: 65,
+  UP: 87,
+  RIGHT: 68,
+  DOWN: 83,
 }
 
   // one-time setup
@@ -37,7 +37,7 @@ const KEY = {
   Note: You can have multiple event listeners for different types of events.
   */
   $(document).on('keydown', handleKeyDown);                          
-
+    $(document).on('keyup', handleKeyUp);
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -60,19 +60,36 @@ const KEY = {
   function handleKeyDown(event) {
     console.log(event.which);
     if (event.which === KEY.LEFT) {
+      walker.speedX -= 5;
   console.log("left pressed");
 }
 else if (event.which === KEY.UP) {
+  walker.speedY -= 5;
   console.log("up pressed");
 }
 else if (event.which === KEY.RIGHT) {
+  walker.speedX += 5;
   console.log("right pressed");
 }
 else if (event.which === KEY.DOWN) {
+  walker.speedY += 5;
   console.log("down pressed");
 }
   }
-
+function handleKeyUp(event) {
+  if (event.which === KEY.LEFT) {
+    speedX = 0;
+  }
+  else if (event.which === KEY.UP) {
+    speedY = 0;
+  }
+  else if (event.which === KEY.RIGHT) {
+    speedX = 0;
+  }
+  else if (event.which === KEY.DOWN) {
+    speedY = 0;
+  }
+}
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
