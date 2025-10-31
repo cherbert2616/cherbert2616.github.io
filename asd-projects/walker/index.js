@@ -94,8 +94,8 @@ function handleKeyUp(event) {
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
   function repositionGameItem() {
-    walker.speedX += walker.x 
-    walker.speedY += walker.y
+    walker.x += walker.speedX
+    walker.y += walker.speedY
   }
   
   function redrawGameItem() {
