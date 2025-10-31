@@ -48,6 +48,7 @@ function runProgram() {
   function newFrame() {
     repositionGameItem();
     redrawGameItem();
+    wallCollision();
   }
 
   /* 
