@@ -59,16 +59,16 @@ function runProgram() {
   function handleKeyDown(event) {
     console.log(event.which);
     if (event.which === KEY.LEFT) {
-      walker.speedX = -5;
+      walker.speedX -= 5;
       console.log("left pressed");
     } else if (event.which === KEY.UP) {
-      walker.speedY = -5;
+      walker.speedY -= 5;
       console.log("up pressed");
     } else if (event.which === KEY.RIGHT) {
-      walker.speedX = 5;
+      walker.speedX += 5;
       console.log("right pressed");
     } else if (event.which === KEY.DOWN) {
-      walker.speedY = 5;
+      walker.speedY += 5;
       console.log("down pressed");
     }
   }
@@ -94,6 +94,21 @@ function runProgram() {
   function redrawGameItem() {
     $("#walker").css("left", walker.x);
     $("#walker").css("top", walker.y);
+  }
+ 
+  function wallCollision() {
+    if (KEY.LEFT > 0){
+      walker.x -= walker.speedX;
+    }
+    else if (KEY.UP > 0) {
+      walker.y -= walker.speedY;
+    }
+    else if (KEY.RIGHT > $("#board").width()) {
+      walker.x -= walker.speedX;
+    }
+    else if (KEY.DOWN > $("#board").height()) {
+      walker.y -= walker.speedY;
+    }
   }
 
   function endGame() {
