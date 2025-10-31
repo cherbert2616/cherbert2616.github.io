@@ -98,16 +98,16 @@ function runProgram() {
   }
  
   function wallCollision() {
-    if (KEY.LEFT > 0){
+    if (walker.x > 0){
       walker.x -= walker.speedX;
     }
-    else if (KEY.UP > 0) {
+    else if (walker.y > 0) {
       walker.y -= walker.speedY;
     }
-    else if (KEY.RIGHT > $("#board").width()) {
+    else if (walker.x > $("#board").width()) {
       walker.x -= walker.speedX;
     }
-    else if (KEY.DOWN > $("#board").height()) {
+    else if (walker.y > $("#board").height()) {
       walker.y -= walker.speedY;
     }
   }
