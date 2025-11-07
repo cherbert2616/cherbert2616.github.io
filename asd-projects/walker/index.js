@@ -29,6 +29,8 @@ function runProgram() {
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL); // execute newFrame every 0.0166 seconds (60 Frames per second)
 
+  var walkerWidth = $("#walker").width();
+  var walkerHeight = $("#walker").height();
   /* 
   This section is where you set up event listeners for user input.
   For example, if you wanted to handle a click event on the document, you would replace 'eventType' with 'click', and if you wanted to execute a function named 'handleClick', you would replace 'handleEvent' with 'handleClick'.
@@ -75,13 +77,13 @@ function runProgram() {
   }
   function handleKeyUp(event) {
     if (event.which === KEY.LEFT) {
-      speedX = 0;
+      walker.speedX = 0;
     } else if (event.which === KEY.UP) {
-      speedY = 0;
+      walker.speedY = 0;
     } else if (event.which === KEY.RIGHT) {
-      speedX = 0;
+      walker.speedX = 0;
     } else if (event.which === KEY.DOWN) {
-      speedY = 0;
+      walker.speedY = 0;
     }
   }
   ////////////////////////////////////////////////////////////////////////////////
@@ -98,20 +100,19 @@ function runProgram() {
   }
  
   function wallCollision() {
-    if (walker.x > 0){
+    if (walker.x < 0){
       walker.x -= walker.speedX;
     }
-    else if (walker.y > 0) {
+    if (walker.y < 0) {
       walker.y -= walker.speedY;
     }
-    else if (walker.x > $("#board").width()) {
-      walker.x -= walker.speedX;
-    }
-    else if (walker.y > $("#board").height()) {
-      walker.y -= walker.speedY;
-    }
+    if (walker.x + $("#walker").width() > $("#board").width()) {
+    walker.x -= walker.speedX;
   }
-
+  if (walker.y + $("#walker").height() > $("#board").height()) {
+    walker.y -= walker.speedY;
+  }
+}
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
