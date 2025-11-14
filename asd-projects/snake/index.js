@@ -93,7 +93,7 @@ function checkForNewDirection(event) {
   BONUS: Only allow direction changes to take place if the new direction is
   perpendicular to the current direction
   */
-
+ activeKey = event.which;
   if (activeKey === KEY.LEFT) {
     snake.head.direction = "left";
   }
@@ -120,7 +120,7 @@ function moveSnake() {
     stored in the Array snake.body and each part knows its current 
     column/row properties. 
   */
-for (var i = snake.body.length - 1; i >= 0; i-- ) {
+for (var i = snake.body.length - 1; i >= 0; i--) {
     var currentSnakeSquare = snake.body[i];
     var snakeSquareInFront = snake.body[i - 1];
 
