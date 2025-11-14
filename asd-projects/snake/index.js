@@ -93,7 +93,7 @@ function checkForNewDirection(event) {
   BONUS: Only allow direction changes to take place if the new direction is
   perpendicular to the current direction
   */
- activeKey = event.which;
+
   if (activeKey === KEY.LEFT) {
     snake.head.direction = "left";
   }
