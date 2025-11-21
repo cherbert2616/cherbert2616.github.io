@@ -231,13 +231,14 @@ function hasCollidedWithSnake() {
 // get access to snake's body parts by looping
 // compare each square’s .row and .column with snake.head.row and snake.head.column.
 // if it's equal, return true 
-for (var i = snake.body.length - 1; i >= 1; i--)
-var currentSnakeSquare = snake.body[i]
+for (var i = snake.body.length - 1; i >= 1; i--) {
+var currentSnakeSquare = snake.body[i] 
 if (currentSnakeSquare.row === snake.head.row && currentSnakeSquare.column === snake.head.column) {
   return true;
+} 
 }
   return false;
-}
+} 
 
 function endGame() {
   // stop update function from running
