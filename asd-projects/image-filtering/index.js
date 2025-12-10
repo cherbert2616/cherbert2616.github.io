@@ -36,6 +36,7 @@ function applyFilter() {
 for (let i = 0; i < image.length; i++) {
 for (let j = 0; j < image.length[i]; j++) {
   console.log(image[i][j])
+  var pixel = image[i]
 }
  }
 }
