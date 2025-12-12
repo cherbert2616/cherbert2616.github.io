@@ -41,7 +41,6 @@ for (let j = 0; j < image[i].length; j++) {
   var pixelArray = rgbStringToArray(pixel);
   filterFunction(pixelArray);
   // This is where I'll modify the color values later
-  pixelArray[0] = 200;
   var updatedPixel = rgbArrayToString(pixelArray);
   image[i][j] = updatedPixel
 }
