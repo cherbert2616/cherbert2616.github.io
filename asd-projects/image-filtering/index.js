@@ -37,12 +37,13 @@ applyFilter(reddify);
 function applyFilter(filterFunction) {
 for (let i = 0; i < image.length; i++) {
 for (let j = 0; j < image[i].length; j++) {
-  filterFunction(pixelArray);
-  var pixel = image[i];
+  var pixel = image[i][j];
   var pixelArray = rgbStringToArray(pixel);
+  filterFunction(pixelArray);
   // This is where I'll modify the color values later
-  pixelArray[RED] = 200;
+  pixelArray[0] = 200;
   var updatedPixel = rgbStringToArray(pixelArray);
+  image[i][j] = updatedPixel
 }
  }
 }
@@ -78,14 +79,17 @@ function keepInBounds(num) {
 // TODO 4: Create reddify filter function
 function reddify(pixelArray) {
 pixelArray[0] += RED
+return pixelArray;
 };
 
 // TODO 7 & 8: Create more filter functions
 function decreaseBlue(pixelArray) {
   pixelArray[2] -= BLUE
+  return pixelArray;
 }
 function increaseGreenByBlue(pixelArray) {
 pixelArray[1] = pixelArray[2]
-pixelArray[1] = keepInBounds(pixelArray[1]) 
+pixelArray[1] = keepInBounds(pixelArray[1])
+return pixelArray;
 }
 // CHALLENGE code goes below here
