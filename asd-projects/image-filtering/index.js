@@ -53,7 +53,7 @@ for (let j = 0; j < image[i].length; j++) {
 function applyFilterNoBackground(filterFunction) {
   var backgroundColor = image[0][0]
   for (let i = 0; i < image.length; i++) {
-    for (let j = 0; j < image.length; j++) {
+    for (let j = 0; j < image[i].length; j++) {
       if (image[i][j] !== backgroundColor) {
         var pixelArray = rgbStringToArray(image[i][j])
         var transformation = filterFunction(pixelArray)
